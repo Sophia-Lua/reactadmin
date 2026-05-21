@@ -81,7 +81,16 @@ function TagsView() {
   }
 
   return (
-    <div className="tags-view-container" style={{ height: 34, lineHeight: '34px', background: '#fff', borderBottom: '1px solid #d8dce5', padding: '0 8px', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+    <div className="tags-view-container" style={{
+      height: 40,
+      lineHeight: '40px',
+      background: '#fff',
+      borderBottom: '1px solid #f0f0f0',
+      padding: '0 16px',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)',
+    }}>
       <div ref={scrollContainerRef} className="tags-view-wrapper" style={{ display: 'inline-block' }}>
         {visitedViews.map(view => (
           <Dropdown
@@ -90,15 +99,20 @@ function TagsView() {
             trigger={['contextMenu']}
           >
             <Tag
-              color={selectedTag.path === view.path ? '#409EFF' : undefined}
+              color={selectedTag.path === view.path ? 'blue' : undefined}
               closable={!view.affix}
               onClose={() => handleClose(view)}
               style={{
-                marginRight: 4,
+                marginRight: 6,
                 marginBottom: 0,
                 cursor: 'pointer',
-                borderRadius: 3,
-                padding: '0 8px',
+                borderRadius: '6px',
+                padding: '0 10px',
+                height: '28px',
+                lineHeight: '26px',
+                border: selectedTag.path === view.path ? '1px solid #1890ff' : '1px solid #d9d9d9',
+                background: selectedTag.path === view.path ? 'linear-gradient(135deg, #e6f7ff 0%, #ffffff 100%)' : 'transparent',
+                transition: 'all 0.2s ease',
               }}
               onClick={() => handleClick(view)}
             >

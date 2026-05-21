@@ -50,20 +50,32 @@ function Navbar({ onToggle }) {
   ]
 
   return (
-    <div className="navbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%', padding: '0 16px' }}>
+    <div className="navbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%', padding: '0 24px' }}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <Hamburger isActive={!sidebar.opened} onToggle={onToggle} />
         <Breadcrumb />
       </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
         <HeaderSearch />
         <Screenfull />
         <SizeSelect />
         <HeaderNotice />
         <Dropdown menu={{ items, onClick: ({ key }) => { if (key === 'logout') handleLogout() }}}>
-          <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0 12px' }}>
-            <Avatar src={avatar || undefined} icon={!avatar ? <UserOutlined /> : undefined} size="small" />
-            <span style={{ marginLeft: 8, fontSize: 14 }}>{userName}</span>
+          <div style={{
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '6px 12px',
+            borderRadius: '8px',
+            transition: 'background 0.2s ease',
+          }}>
+            <Avatar
+              src={avatar || undefined}
+              icon={!avatar ? <UserOutlined /> : undefined}
+              size="small"
+              style={{ border: '2px solid #f0f0f0', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+            />
+            <span style={{ marginLeft: 8, fontSize: 14, fontWeight: 500, color: '#595959' }}>{userName}</span>
           </div>
         </Dropdown>
       </div>

@@ -51,14 +51,15 @@ function DefaultLayout() {
           style={{
             padding: 0,
             background: '#fff',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
             position: 'fixed',
             top: 0,
             right: 0,
-            left: isMobile ? 0 : (collapsed ? 54 : 210),
+            left: isMobile ? 0 : (collapsed ? 64 : 210),
             zIndex: 9,
-            height: 50,
-            lineHeight: '50px',
-            transition: 'left 0.2s',
+            height: 56,
+            lineHeight: '56px',
+            transition: 'left 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         >
           <Navbar onToggle={handleToggle} />
@@ -66,10 +67,10 @@ function DefaultLayout() {
         {showTagsView && <TagsView />}
         <Content
           style={{
-            marginTop: showTagsView ? (fixedHeader ? 84 : 84) : (fixedHeader ? 50 : 50),
+            marginTop: showTagsView ? (fixedHeader ? 96 : 96) : (fixedHeader ? 56 : 56),
             minHeight: 280,
-            padding: '20px',
-            background: '#f0f2f5',
+            padding: '24px',
+            background: '#f5f7fa',
           }}
         >
           <AppMain />
