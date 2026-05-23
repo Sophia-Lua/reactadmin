@@ -13,9 +13,9 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/dev-api': {
-        target: 'http://localhost:8080',
+        target: 'https://vue.ruoyi.vip',
         changeOrigin: true,
-        rewrite: (p) => p.replace(/^\/dev-api/, ''),
+        rewrite: (p) => p.replace(/^\/dev-api/, '/prod-api/'),
       },
     },
     allowedHosts: ['.monkeycode-ai.online'],
